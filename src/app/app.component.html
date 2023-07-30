@@ -3,7 +3,7 @@
   <body>
     <div
       style="
-        border: 5px solid plum;
+        border: 5px solid cornflowerblue;
         height: 100vh;
         display: flex;
         align-items: center;
@@ -15,14 +15,25 @@
       <img [src]="imgSrc" style="width: 200px" />
       <div>Hello, Angular!</div>
 
-      <button
-        [disabled]="!title"
-        (click)="handleClickButton()"
-        class="btn btn-warning"
-        style="margin: 20px"
-      >
-        Next Caption
-      </button>
+      <div>
+        <button
+          [disabled]="!title"
+          (click)="handleClickButton()"
+          class="btn btn-warning"
+          style="margin: 20px"
+        >
+          Next Caption
+        </button>
+        <button
+          [disabled]="title"
+          (click)="handleReset()"
+          class="btn btn-primary"
+          style="margin: 20px"
+        >
+          Reset
+        </button>
+      </div>
+
       <div
         style="
           justify-content: space-around;
@@ -30,14 +41,16 @@
           display: flex;
         "
       >
-        <ul style="font-size: 12px">
+        <ul style="font-size: 12px; list-style: none">
           <li *ngFor="let captionItem of captionList">
+            <img [src]="captionItem.icon" style="width: 15px" />
             {{ captionItem.message }}
           </li>
         </ul>
         &nbsp;
-        <ul style="font-size: 12px">
+        <ul style="font-size: 12px; list-style: none">
           <li *ngFor="let usedCaptionItem of usedCaptionList">
+            <img [src]="usedCaptionItem.icon" style="width: 15px" />
             {{ usedCaptionItem.message }}
           </li>
         </ul>

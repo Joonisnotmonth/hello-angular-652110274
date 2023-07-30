@@ -62,7 +62,7 @@ export class AppComponent {
       newCaption = this.captionList[randomIndex];
     }while (this.usedCaptionList.includes(newCaption))
     
-    this.usedCaptionList.push(newCaption)
+    this.usedCaptionList.push(newCaption);
     // do{
     //   randomIndex = this.getRandonInt(this.messages.length)
     //   newCaption = this.messages[randomIndex];
@@ -77,5 +77,11 @@ export class AppComponent {
 
   private getRandonInt(max: number){
     return Math.floor(Math.random() * max)
+  }
+
+  handleReset(){
+    this.title = this.randomCaption()?.message;
+    this.usedCaptionList = [];
+    this.handleReset()
   }
 }
